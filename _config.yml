@@ -99,7 +99,7 @@ service-worker: true
 # Friends
 friends: [
     {
-        title: "WY",
-        href: "http://zhengwuyang.com"
+        title: "小嘉",
+        href: "http://www.cnblogs.com/xiaojia-new/"
     }
 ]
