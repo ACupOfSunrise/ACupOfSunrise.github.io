@@ -51,12 +51,9 @@ tags:
       //循环导航二级菜单
       [@NodeList parentId=node.parent.id;list]
         [#list list as n]
-          <a href="${n.url}"
-          class="[#if node.id==n.id]ap-curr[#else]ap[/#if]">
-          ${n.name}
-          </a>
+          <a href="${n.url}"class="[#if node.id==n.id]ap-curr[#else]ap[/#if]">${n.name}</a>
         [/#list]
-	   [/@NodeList]
+      [/@NodeList]
 
       //循环列表
       [#list pagedList.content as info]
