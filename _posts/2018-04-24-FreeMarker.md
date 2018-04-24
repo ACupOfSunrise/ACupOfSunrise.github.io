@@ -13,7 +13,7 @@ tags:
 # 正文
 
 ## 1. XXXList表示查询一个没有分页的list
-```
+```javascript
     //attr属性名称 ,limit表示显示条数，isIncludeChildren是否包含子集
     //node节点名称属性（菜单名称）,nodeId节点代码（菜单Id）,parent父节点属性,parentId父节点ID
     [@InfoList attr='focus' limit='4';list]
@@ -28,7 +28,7 @@ tags:
 ```
 
 ## 2. XXXPage表示查询一个分页的list
-```
+```js
     //attr属性名称 ,limit表示显示条数，isIncludeChildren是否包含子集
     //node节点名称属性（菜单名称）,nodeId节点代码（菜单Id）,parent父节点属性,parentId父节点ID
     [@InfoPage attr='focus' limit='4';list]
@@ -43,7 +43,9 @@ tags:
     [/@InfoPage]
 ```
 ## 3. 带导航的信息列表
-```
+
+```js
+
     [@InfoPage nodeId=node.id sort=sort pageSize='10';pagedList]
 
       //循环导航二级菜单
