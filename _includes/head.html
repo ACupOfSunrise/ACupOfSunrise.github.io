@@ -51,5 +51,97 @@
     <![endif]-->
 
     <!-- ga & ba script hoook -->
-    <script></script>
+<!--     <script></script> -->
+    <script>
+$(function(){
+    var sidebar = $('#sidebar');
+    var mask = $('.mask');
+    var btnsidebar = $('#btnsidebar');
+    var btntop = $('#btntop');
+
+    btnsidebar.on('click',function(){//监听菜单按钮
+        mask.fadeIn();
+        sidebar.css('right',0);
+    });
+
+    mask.on('click',function(){//监听遮罩区域点击事件
+        mask.fadeOut();
+        sidebar.css('right',-sidebar.width());
+    });
+
+    btntop.on('click',function(){//监听返回顶部按钮
+        $('html,body').animate({
+            scrollTop:0
+        },800)
+    })
+
+    $(window).on('scroll',function(){//监听滚动事件
+        if($(window).scrollTop()>$(window).height()){
+            btntop.fadeIn();
+        }else{
+            btntop.fadeOut();
+        }
+    });
+
+    $(window).trigger('scroll');//加载页面后触发滚动事件
+});
+</script>
+<style>
+    .mask//遮罩区域
+    {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: rgba(0,0,0,0.3);
+    }
+
+    #sidebar/*侧边栏*/
+    {
+        position:fixed;
+        width: 300px;
+        background: #333;
+        top: 0;
+        bottom: 0;
+        right: -300px;
+        transition: 0.5s;
+    }
+    #sidebar ul
+    {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    #sidebar ul a/*侧边栏菜单*/
+    {
+        text-decoration: none;
+        padding:20px 50px;
+        display:inline-block;
+        color: #fff;
+        width: 100%;
+    }
+    #sidebar ul a:hover/*侧边栏菜单鼠标悬停*/
+    {
+        background: #444;
+    }
+    body
+    {
+        height: 3000px;
+    }
+    #btntop/*返回顶部按钮*/
+    {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+    }
+    #btnsidebar/*侧边栏按钮*/
+    {
+        position: fixed;
+        top: 30px;
+        right: 30px;
+    }
+</style>
+
 </head>
